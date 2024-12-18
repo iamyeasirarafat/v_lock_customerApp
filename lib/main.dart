@@ -15,10 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'V Lock',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: const Color(0xFF7F56D9),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
+      home: const SplashScreen(),
       routes: {
         '/login': (context) => const LoginScreen(),
       },

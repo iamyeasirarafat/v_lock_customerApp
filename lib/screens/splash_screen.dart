@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:v_lock/screens/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  double _dragPosition = 10; // Tracks the position of the draggable icon
-  final double _dragThreshold = 250.0; // Threshold to complete the swipe
+  double _dragPosition = 10;
+  final double _dragThreshold = 250.0;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
           // Background Image
           Positioned.fill(
             child: Image.asset(
-              'assets/splash.png', // Replace with your background image path
+              'assets/splash.png',
               fit: BoxFit.cover,
             ),
           ),
@@ -29,16 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
             right: 20,
             child: Column(
               children: [
-                // Text(
-                //   "Swipe to Start",
-                //   style: TextStyle(
-                //     fontSize: 24,
-                //     color: Colors.white,
-                //     fontWeight: FontWeight.bold,
-                //   ),
-                // ),
-                // SizedBox(height: 20),
-                // Swipe Box with Rounded Shape
                 Container(
                   height: 60,
                   width: 297,
@@ -49,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Stack(
                     children: [
                       const Center(
-                        child: const Text(
+                        child: Text(
                           "Swipe to Start",
                           style: TextStyle(
                             color: Colors.black,
@@ -75,7 +67,7 @@ class _SplashScreenState extends State<SplashScreen> {
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginScreen()),
+                                    builder: (context) => const LoginScreen()),
                               );
                             } else {
                               // Reset the position if not fully dragged
@@ -87,11 +79,11 @@ class _SplashScreenState extends State<SplashScreen> {
                           child: Container(
                             width: 42,
                             height: 42,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Colors.blueAccent,
                               shape: BoxShape.circle,
                             ),
-                            child: Icon(
+                            child: const Icon(
                               Icons.arrow_forward,
                               color: Colors.white,
                               size: 30,

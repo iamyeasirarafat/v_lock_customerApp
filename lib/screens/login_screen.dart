@@ -137,12 +137,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       passwordController: passwordController,
                       primaryColor:Theme.of(context).primaryColor
                       ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 24),
                 // Submit Button
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
-                    minimumSize: const Size(double.infinity, 50),
+                    minimumSize: const Size(double.infinity, 44),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -153,13 +153,47 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: const TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
-                const SizedBox(height: 20),
+                
+                const SizedBox(height: 16),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    
+                    minimumSize: const Size(double.infinity, 44),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      side: BorderSide(color: Colors.grey[300]!)
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Image.asset(
+                        'assets/google.png', 
+                        height: 24,
+                        width: 24,
+                      ),
+                      const SizedBox(width: 12),
+                       Text(
+                        'Sign in with Google',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 32),
                 // Sign Up Link
                 if (_isLoginSelected)
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Don't have an account?"),
+                      const Text("Don't have an account? "),
                       GestureDetector(
                         onTap: () {
                           setState(() {

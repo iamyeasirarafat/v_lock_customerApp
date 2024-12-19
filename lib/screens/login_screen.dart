@@ -33,8 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
         // Perform login logic
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-              builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
       }
     } else {
@@ -54,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
           child: Padding(
-            padding: const EdgeInsets.only(top: 48, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 48, left: 0, right: 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -102,61 +101,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         });
                       },
                       borderColor: Colors.transparent,
-                      fillColor: Colors.white,
+                      fillColor: Colors.grey[200],
                       selectedColor: Colors.grey[700],
                       textStyle: const TextStyle(fontWeight: FontWeight.w600),
                       color: Colors.grey[500],
                       selectedBorderColor: Colors.transparent,
+
+                      borderRadius: BorderRadius.circular(8),
                       // No border for selected buttons
-                      constraints:
-                          const BoxConstraints(minWidth: 156, minHeight: 36),
-                      // children: [
-                      //   Text('Sign up'),
-                      //   Text('Log in'),
-                      // ],
+                      constraints: BoxConstraints(
+                          minWidth: MediaQuery.of(context).size.width * 0.434,
+                          minHeight: 36),
+
                       children: [
-                        Container(
-                          width: 156,
-                          decoration: BoxDecoration(
-                            boxShadow: _isLoginSelected == true
-                                ? []
-                                : [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.1),
-                                      // Soft black shadow with low opacity
-                                      blurRadius: 20,
-                                      // Large blur for a fading effect
-                                      spreadRadius: 0,
-                                      // No spread radius
-                                      offset: Offset(0,
-                                          4), // Vertical offset for the shadow
-                                    ),
-                                  ],
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Center(child: Text('Sign up')),
-                        ),
-                        Container(
-                          width: 156,
-                          decoration: BoxDecoration(
-                            boxShadow: _isLoginSelected == true
-                                ? [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.1),
-                                      // Soft black shadow with low opacity
-                                      blurRadius: 20,
-                                      // Large blur for a fading effect
-                                      spreadRadius: 0,
-                                      // No spread radius
-                                      offset: Offset(0,
-                                          4), // Vertical offset for the shadow
-                                    ),
-                                  ]
-                                : [],
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Center(child: Text('Log in')),
-                        ),
+                        Text('Sign up'),
+                        Text('Log in'),
                       ],
                     ))),
                 const SizedBox(height: 30),
@@ -167,13 +126,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       emailController: emailController,
                       passwordController: passwordController,
                       rememberMe: _rememberMe,
-                      onRememberMeChanged: _updateRememberMe)
+                      onRememberMeChanged: _updateRememberMe,
+                      primaryColor:Theme.of(context).primaryColor
+                      )
                 else
                   registrationForm(
                       key: _registrationFormKey,
                       nameController: nameController,
                       emailController: emailController,
-                      passwordController: passwordController),
+                      passwordController: passwordController,
+                      primaryColor:Theme.of(context).primaryColor
+                      ),
                 const SizedBox(height: 20),
                 // Submit Button
                 ElevatedButton(
@@ -196,7 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Don’t have an account? "),
+                      const Text("Don't have an account?"),
                       GestureDetector(
                         onTap: () {
                           setState(() {

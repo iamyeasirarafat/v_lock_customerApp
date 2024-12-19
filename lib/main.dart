@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:v_lock/screens/login_screen.dart';
 import 'package:v_lock/screens/splash_screen.dart';
 
 void main() {
@@ -20,9 +19,6 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
-      routes: {
-        '/login': (context) => const LoginScreen(),
-      },
     );
   }
 }

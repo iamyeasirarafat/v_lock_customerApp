@@ -6,7 +6,8 @@ Widget loginForm(
     required TextEditingController emailController,
     required TextEditingController passwordController,
     required bool rememberMe,
-    required Function(bool) onRememberMeChanged}) {
+    required Function(bool) onRememberMeChanged,
+    required Color primaryColor}) {
   return Form(
     key: key,
     child: Column(
@@ -82,34 +83,50 @@ Widget loginForm(
             return null;
           },
         ),
+        const SizedBox(
+          height: 24,
+        ),
+        // remember me part
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
           children: [
             Row(
               children: [
-                Checkbox(
-                    value: rememberMe,
-                    onChanged: (bool? value) {
-                      onRememberMeChanged(value ?? false);
-                    }),
-                Text('Remember for 30 days',
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[700]
-                  ),),
+                SizedBox(
+                  height: 16,
+                  width: 16,
+                  child: Checkbox(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4),
+                        side: BorderSide(color: Colors.grey[300]!),
+                      ),
+                      value: rememberMe,
+                      onChanged: (bool? value) {
+                        onRememberMeChanged(value ?? false);
+                      }),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8),
+                  child: GestureDetector(
+                    onTap: () =>
+                        {onRememberMeChanged(rememberMe ? false : true)},
+                    child: Text('Remember for 30 days',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey[700],
+                        )),
+                  ),
+                ),
               ],
             ),
-            TextButton(
-              onPressed: () {
-                // Add logic for the "Forgot Password" action
-                // For example, navigating to a password reset screen
-              },
-              child: const Text(
+            GestureDetector(
+              onTap: () {},
+              child: Text(
                 'Forgot password',
                 style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14
+                  fontWeight: FontWeight.w600,
+                  color: primaryColor,
                 ),
               ),
             ),

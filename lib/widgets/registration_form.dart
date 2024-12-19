@@ -6,6 +6,7 @@ Widget registrationForm({
   required TextEditingController nameController,
   required TextEditingController emailController,
   required TextEditingController passwordController,
+  required Color primaryColor
 }) {
   return Form(
     key: key,

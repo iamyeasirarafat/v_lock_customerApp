@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:v_lock/screens/splash_screen.dart';
+import 'package:vehicle_Lock/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

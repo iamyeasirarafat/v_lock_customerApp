@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:v_lock/screens/home_screen.dart';
-import 'package:v_lock/widgets/login_form.dart';
-import 'package:v_lock/widgets/registration_form.dart';
+import 'package:vehicle_Lock/screens/home_screen.dart';
+import 'package:vehicle_Lock/widgets/login_form.dart';
+import 'package:vehicle_Lock/widgets/registration_form.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -113,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           minWidth: MediaQuery.of(context).size.width * 0.434,
                           minHeight: 36),
 
-                      children: [
+                      children: const [
                         Text('Sign up'),
                         Text('Log in'),
                       ],

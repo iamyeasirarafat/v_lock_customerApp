@@ -45,7 +45,7 @@ Widget registrationForm({
             return null;
           },
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         // Email Input
         Text(
           "Email/Phone Number",

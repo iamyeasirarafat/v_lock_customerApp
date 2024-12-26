@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:v_lock/screens/login_screen.dart';
+import 'package:vehicle_Lock/screens/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           // Swipe to Start Section
           Positioned(
-            bottom: 100,
+            bottom: 60,
             left: 20,
             right: 20,
             child: Column(

@@ -127,16 +127,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       passwordController: passwordController,
                       rememberMe: _rememberMe,
                       onRememberMeChanged: _updateRememberMe,
-                      primaryColor:Theme.of(context).primaryColor
-                      )
+                      primaryColor: Theme.of(context).primaryColor)
                 else
                   registrationForm(
                       key: _registrationFormKey,
                       nameController: nameController,
                       emailController: emailController,
                       passwordController: passwordController,
-                      primaryColor:Theme.of(context).primaryColor
-                      ),
+                      primaryColor: Theme.of(context).primaryColor),
                 const SizedBox(height: 24),
                 // Submit Button
                 ElevatedButton(
@@ -153,17 +151,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: const TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
-                
+
                 const SizedBox(height: 16),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    
                     minimumSize: const Size(double.infinity, 44),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      side: BorderSide(color: Colors.grey[300]!)
-                    ),
+                        borderRadius: BorderRadius.circular(10),
+                        side: BorderSide(color: Colors.grey[300]!)),
                   ),
                   onPressed: () {},
                   child: Row(
@@ -171,12 +167,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Image.asset(
-                        'assets/google.png', 
+                        'assets/google.png',
                         height: 24,
                         width: 24,
                       ),
                       const SizedBox(width: 12),
-                       Text(
+                      Text(
                         'Sign in with Google',
                         style: TextStyle(
                           fontSize: 16,

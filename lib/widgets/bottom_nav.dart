@@ -52,8 +52,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         ? Theme.of(context).primaryColor
                         : Colors.grey,
                     BlendMode.srcIn),
-                width: 28,
-                height: 28,
+                width: 26,
+                height: 26,
               ),
               label: ''),
           BottomNavigationBarItem(
@@ -64,8 +64,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         ? Theme.of(context).primaryColor
                         : Colors.grey,
                     BlendMode.srcIn),
-                width: 28,
-                height: 28,
+                width: 26,
+                height: 26,
               ),
               label: ''),
           BottomNavigationBarItem(
@@ -76,8 +76,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         ? Theme.of(context).primaryColor
                         : Colors.grey,
                     BlendMode.srcIn),
-                width: 28,
-                height: 28,
+                width: 26,
+                height: 26,
               ),
               label: ''),
           BottomNavigationBarItem(
@@ -88,8 +88,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         ? Theme.of(context).primaryColor
                         : Colors.grey,
                     BlendMode.srcIn),
-                width: 28,
-                height: 28,
+                width: 26,
+                height: 26,
               ),
               label: ''),
           BottomNavigationBarItem(
@@ -100,8 +100,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         ? Theme.of(context).primaryColor
                         : Colors.grey,
                     BlendMode.srcIn),
-                width: 28,
-                height: 28,
+                width: 26,
+                height: 26,
               ),
               label: ''),
         ],

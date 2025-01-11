@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vehicle_Lock/screens/home_screen.dart';
+import 'package:vehicle_Lock/layouts/base_layout.dart';
 import 'package:vehicle_Lock/widgets/login_form.dart';
 import 'package:vehicle_Lock/widgets/registration_form.dart';
 
@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
         // Perform login logic
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const BaseLayout()),
         );
       }
     } else {

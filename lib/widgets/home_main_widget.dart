@@ -1,109 +1,8 @@
-// import 'package:flutter/material.dart';
-// import 'package:vehicle_Lock/widgets/bottom_nav.dart';
-// import 'package:vehicle_Lock/widgets/home_main_widget.dart';
-
-// class HomeScreen extends StatefulWidget {
-//   const HomeScreen({super.key});
-
-//   @override
-//   _HomeScreenState createState() => _HomeScreenState();
-// }
-
-// class _HomeScreenState extends State<HomeScreen> {
-//   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       key: _scaffoldKey,
-//       backgroundColor: Colors.white,
-//       appBar: AppBar(
-//         automaticallyImplyLeading: false,
-//         backgroundColor: Colors.deepPurple,
-//         title: const Padding(
-//           padding: EdgeInsets.symmetric(vertical: 12),
-//           child: Row(
-//             children: [
-//               CircleAvatar(
-//                 radius: 20,
-//                 backgroundImage: AssetImage('assets/person.jpg'),
-//                 backgroundColor: Colors.white,
-//                 // child: Image.asset('assets/person.jpg', width: 32, height: 32),
-//               ),
-//               SizedBox(width: 10),
-//               Text('Hi, Razu Rahman', style: TextStyle(color: Colors.white)),
-//             ],
-//           ),
-//         ),
-//         actions: [
-//           Container(
-//             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-//             margin: const EdgeInsets.all(8),
-//             decoration: BoxDecoration(
-//               color: Colors.white,
-//               borderRadius: BorderRadius.circular(8),
-//             ),
-//             child: const Row(
-//               children: [
-//                 Icon(Icons.circle, color: Colors.green, size: 12),
-//                 SizedBox(width: 4),
-//                 Text('Solo', style: TextStyle(color: Colors.black)),
-//               ],
-//             ),
-//           ),
-//           IconButton(
-//             icon: const Icon(Icons.menu),
-//             onPressed: () => _scaffoldKey.currentState?.openDrawer(),
-//             color: Colors.white,
-//           ),
-//         ],
-//       ),
-
-//       // Side Navigation Drawer
-//       drawer: Drawer(
-//         child: Column(
-//           children: [
-//             DrawerHeader(
-//               decoration: const BoxDecoration(color: Colors.white),
-//               child: Center(
-//                 child: Image.asset('assets/logo.png', height: 80),
-//               ),
-//             ),
-//             Expanded(
-//               child: ListView(
-//                 children: [
-//                   ListTile(
-//                     leading: const Icon(Icons.home),
-//                     title: const Text('Home'),
-//                     onTap: () {},
-//                   ),
-//                   ListTile(
-//                     leading: const Icon(Icons.settings),
-//                     title: const Text('Settings'),
-//                     onTap: () {},
-//                   ),
-//                 ],
-//               ),
-//             ),
-//             ListTile(
-//               leading: const Icon(Icons.logout),
-//               title: const Text('Logout'),
-//               onTap: () {},
-//             ),
-//           ],
-//         ),
-//       ),
-//       body: HomeMainWidget(),
-//       // Bottom Navigation
-//       bottomNavigationBar: CustomBottomNavBar(),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:vehicle_Lock/widgets/control_button.dart';
 
-class HomeScreen extends StatelessWidget {
-    final List<Map<String, dynamic>> carData = [
+Widget HomeMainWidget() {
+  final List<Map<String, dynamic>> carData = [
     {
       'id': '1',
       'name': 'Toyota Camry',
@@ -121,12 +20,7 @@ class HomeScreen extends StatelessWidget {
     }
     // Add more cars as needed
   ];
- 
-  HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
+  return SingleChildScrollView(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -344,5 +238,4 @@ class HomeScreen extends StatelessWidget {
       ],
     ),
   );
-  }
 }

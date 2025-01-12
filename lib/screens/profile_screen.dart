@@ -133,10 +133,65 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           icon: Icons.home_outlined,
                         ),
                       ],
-                    ))
+                    )),
+                Container(
+                  width: double.infinity, // Make container full width
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.grey.shade300),
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                            backgroundColor:
+                                const WidgetStatePropertyAll(Colors.white),
+                            shape:
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                side: BorderSide(color: Colors.grey.shade300),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            )),
+                        child: const Text("Cancel",
+                            style: TextStyle(
+                                color: Color(0xFF344054),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600)),
+                      ),
+                      const SizedBox(width: 12),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                            backgroundColor: WidgetStateProperty.all(
+                                Theme.of(context).primaryColor),
+                            shape:
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                // side: BorderSide(color: Colors.grey.shade300),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            )),
+                        child: const Text("Save Changes",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600)),
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
+          const SizedBox(height: 30)
         ],
       ),
     );

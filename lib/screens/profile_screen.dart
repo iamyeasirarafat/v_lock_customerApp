@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -39,78 +45,134 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10), // To compensate for the avatar's overlap
-          
-          // TabBar
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-            padding: const EdgeInsets.all(4),
-            decoration: BoxDecoration(
-              color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: TabBar(
-              indicator: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              labelColor: Colors.black,
-              unselectedLabelColor: Colors.grey,
-              tabs: const [
-                Tab(text: 'Profile details'),
-                Tab(text: 'Plan & License'),
-              ],
-            ),
-          ),
-          const SizedBox(height: 16),
 
           // Content inside the Tab
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                Container(
+                  width: double.infinity, // Make container full width
+                  padding: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    border: Border.all(width: 1, color: Colors.grey.shade300),
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.05),
+                        blurRadius: 4,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment:
+                        MainAxisAlignment.start, // Align items to start
+                    children: [
+                      _buildToggleItem(
+                        0,
+                        'Profile details',
+                      ),
+                      const SizedBox(width: 4),
+                      _buildToggleItem(
+                        1,
+                        'Plan & License',
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8),
+                const Text(
                   'Personal info',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
                 ),
-                SizedBox(height: 4),
-                Text(
+                const SizedBox(height: 4),
+                const Text(
                   'Update your photo and personal details.',
                   style: TextStyle(color: Colors.grey),
                 ),
-                SizedBox(height: 16),
-              ],
-            ),
-          ),
-
-          // Form Section
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomTextField(label: 'First name', hintText: 'Olivia'),
-                SizedBox(height: 16),
-                CustomTextField(label: 'Last name', hintText: 'Rhye'),
-                SizedBox(height: 16),
-                CustomTextField(
-                  label: 'Email address',
-                  hintText: 'olivia@untitledui.com',
-                  icon: Icons.email_outlined,
-                ),
-                SizedBox(height: 16),
-                CustomTextField(
-                  label: 'Phone Number',
-                  hintText: '0194458271',
-                  icon: Icons.phone,
-                ),
+                const SizedBox(height: 20),
+                Container(
+                    width: double.infinity, // Make container full width
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 20),
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.grey.shade300),
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                      ),
+                    ),
+                    child: const Column(
+                      children: [
+                        CustomTextField(
+                            label: 'First name', hintText: 'Olivia'),
+                        SizedBox(height: 24),
+                        CustomTextField(label: 'Last name', hintText: 'Rhye'),
+                        SizedBox(height: 24),
+                        CustomTextField(
+                          label: 'Email address',
+                          hintText: 'olivia@untitledui.com',
+                          icon: Icons.mail_outline_rounded,
+                        ),
+                        SizedBox(height: 24),
+                        CustomTextField(
+                          label: 'Phone Number',
+                          hintText: '0194458271',
+                          icon: Icons.phone,
+                        ),
+                        SizedBox(height: 24),
+                        CustomTextField(
+                          label: 'Address',
+                          hintText: '4506 mcintosh road, new york',
+                          icon: Icons.home_outlined,
+                        ),
+                      ],
+                    ))
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildToggleItem(int index, String text) {
+    final isSelected = selectedIndex == index;
+
+    return GestureDetector(
+      onTap: () => setState(() => selectedIndex = index),
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 8,
+        ),
+        decoration: BoxDecoration(
+          color: isSelected ? Colors.white : Colors.transparent,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: isSelected
+              ? [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 4,
+                    offset: const Offset(0, 2),
+                  ),
+                ]
+              : null,
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            color: isSelected ? Colors.black87 : Colors.grey[600],
+            fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+            fontSize: 14,
+          ),
+        ),
       ),
     );
   }
@@ -144,17 +206,14 @@ class CustomTextField extends StatelessWidget {
         TextFormField(
           decoration: InputDecoration(
             hintText: hintText,
-            prefixIcon:
-                icon != null ? Icon(icon, size: 20, color: Colors.grey) : null,
-            filled: true,
-            fillColor: Colors.grey.shade100,
+            hintStyle: TextStyle(color: Colors.grey[500]),
+            prefixIcon: icon != null ? Icon(icon) : null,
+            prefixIconColor: Colors.grey[600],
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Colors.grey.shade300),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Colors.blue.shade300),
+                borderSide: BorderSide(color: Colors.grey[300]!),
+                borderRadius: BorderRadius.circular(10)),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
             ),
           ),
         ),

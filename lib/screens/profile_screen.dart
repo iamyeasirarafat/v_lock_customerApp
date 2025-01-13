@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_Lock/widgets/personal_details_form.dart';
+import 'package:vehicle_Lock/widgets/plan_license_table.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -84,110 +86,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text(
-                  'Personal info',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                const Text(
-                  'Update your photo and personal details.',
-                  style: TextStyle(color: Colors.grey),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                    width: double.infinity, // Make container full width
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 20),
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Colors.grey.shade300),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                      ),
-                    ),
-                    child: const Column(
-                      children: [
-                        CustomTextField(
-                            label: 'First name', hintText: 'Olivia'),
-                        SizedBox(height: 24),
-                        CustomTextField(label: 'Last name', hintText: 'Rhye'),
-                        SizedBox(height: 24),
-                        CustomTextField(
-                          label: 'Email address',
-                          hintText: 'olivia@untitledui.com',
-                          icon: Icons.mail_outline_rounded,
-                        ),
-                        SizedBox(height: 24),
-                        CustomTextField(
-                          label: 'Phone Number',
-                          hintText: '0194458271',
-                          icon: Icons.phone,
-                        ),
-                        SizedBox(height: 24),
-                        CustomTextField(
-                          label: 'Address',
-                          hintText: '4506 mcintosh road, new york',
-                          icon: Icons.home_outlined,
-                        ),
-                      ],
-                    )),
-                Container(
-                  width: double.infinity, // Make container full width
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.grey.shade300),
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                            backgroundColor:
-                                const WidgetStatePropertyAll(Colors.white),
-                            shape:
-                                WidgetStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                side: BorderSide(color: Colors.grey.shade300),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            )),
-                        child: const Text("Cancel",
-                            style: TextStyle(
-                                color: Color(0xFF344054),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600)),
-                      ),
-                      const SizedBox(width: 12),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                            backgroundColor: WidgetStateProperty.all(
-                                Theme.of(context).primaryColor),
-                            shape:
-                                WidgetStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                // side: BorderSide(color: Colors.grey.shade300),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            )),
-                        child: const Text("Save Changes",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600)),
-                      ),
-                    ],
-                  ),
-                )
+                selectedIndex == 0
+                    ? personalDetailsForm(context)
+                    : planLicenseTable()
               ],
             ),
           ),
@@ -229,50 +130,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class CustomTextField extends StatelessWidget {
-  final String label;
-  final String hintText;
-  final IconData? icon;
-
-  const CustomTextField({
-    Key? key,
-    required this.label,
-    required this.hintText,
-    this.icon,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          '$label *',
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 14,
-          ),
-        ),
-        const SizedBox(height: 4),
-        TextFormField(
-          decoration: InputDecoration(
-            hintText: hintText,
-            hintStyle: TextStyle(color: Colors.grey[500]),
-            prefixIcon: icon != null ? Icon(icon) : null,
-            prefixIconColor: Colors.grey[600],
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey[300]!),
-                borderRadius: BorderRadius.circular(10)),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

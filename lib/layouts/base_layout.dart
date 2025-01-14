@@ -18,8 +18,8 @@ class _BaseLayoutState extends State<BaseLayout> {
     const Center(child: Text('Map Screen')),
     const Center(child: Text('Chart Screen')),
     HomeScreen(),
-    const NotificationgScreen(),
-    ProfileScreen(),
+    const NotificationScreen(),
+    const ProfileScreen(),
   ];
 
   @override

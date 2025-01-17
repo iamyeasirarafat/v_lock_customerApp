@@ -22,8 +22,8 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController(text: "user@gmail.com");
+  final TextEditingController passwordController = TextEditingController(text: "123456");
   final TextEditingController nameController = TextEditingController();
 
   // Function to handle login or registration

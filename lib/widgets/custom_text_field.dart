@@ -7,7 +7,7 @@ class CustomTextField extends StatelessWidget {
 
   const CustomTextField({
     Key? key,
-    required this.label,
+    this.label = "",
     required this.hintText,
     this.icon,
   }) : super(key: key);
@@ -17,19 +17,20 @@ class CustomTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          '$label *',
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 14,
+        if (label != "")
+          Text(
+            '$label *',
+            style: const TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+            ),
           ),
-        ),
         const SizedBox(height: 4),
         TextFormField(
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: TextStyle(color: Colors.grey[500]),
-            prefixIcon: icon != null ? Icon(icon) : null,
+            hintStyle: TextStyle(color: Colors.grey[500], fontSize: 14),
+            prefixIcon: icon != null ? Icon(icon, size: 30,) : null,
             prefixIconColor: Colors.grey[600],
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey[300]!),

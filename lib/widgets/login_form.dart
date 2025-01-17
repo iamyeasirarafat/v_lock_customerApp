@@ -28,7 +28,6 @@ Widget loginForm(
         TextFormField(
           controller: emailController,
           decoration: InputDecoration(
-            // labelText: 'Email/Phone Number',
             hintText: 'Enter your email',
             hintStyle: TextStyle(color: Colors.grey[500]),
             enabledBorder: OutlineInputBorder(

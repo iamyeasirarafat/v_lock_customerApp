@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vehicle_Lock/screens/add_sms_device_screen.dart';
+import 'package:vehicle_Lock/screens/add_device_screen.dart';
 import 'package:vehicle_Lock/widgets/custom_text_field.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -80,11 +80,11 @@ class HomeScreen extends StatelessWidget {
                 _buildDeviceButton(
                   title: "SMS Device",
                   onPressed: () {
-                    // Add your SMS Device logic here
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const AddSmsDevice()));
+                            builder: (context) =>
+                                const AddDevice(deviceType: "sms")));
                   },
                   backgroundColor: Theme.of(context).primaryColor,
                 ),
@@ -92,8 +92,11 @@ class HomeScreen extends StatelessWidget {
                 _buildDeviceButton(
                   title: "GPS Device",
                   onPressed: () {
-                    // Add your GPS Device logic here
-                    Navigator.pop(context);
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const AddDevice(deviceType: "gps")));
                   },
                   backgroundColor: Theme.of(context).primaryColor,
                 ),

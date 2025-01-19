@@ -4,7 +4,7 @@ import 'package:vehicle_Lock/layouts/base_layout.dart';
 
 class AddDevice extends StatefulWidget {
   final String deviceType;
-  const AddDevice({Key? key, required this.deviceType}) : super(key: key);
+  const AddDevice({super.key, required this.deviceType});
 
   @override
   _AddDeviceState createState() => _AddDeviceState();

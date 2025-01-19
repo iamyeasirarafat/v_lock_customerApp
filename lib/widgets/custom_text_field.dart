@@ -6,11 +6,11 @@ class CustomTextField extends StatelessWidget {
   final IconData? icon;
 
   const CustomTextField({
-    Key? key,
+    super.key,
     this.label = "",
     required this.hintText,
     this.icon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

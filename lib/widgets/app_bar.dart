@@ -4,7 +4,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey<ScaffoldState>
       scaffoldKey; // Accept the GlobalKey as a parameter
 
-  const CustomAppBar({Key? key, required this.scaffoldKey}) : super(key: key);
+  const CustomAppBar({super.key, required this.scaffoldKey});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({Key? key}) : super(key: key);
+  const CustomDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {

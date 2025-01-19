@@ -7,12 +7,11 @@ class CustomTableRow extends StatelessWidget {
   final String expiresIn;
 
   const CustomTableRow(
-      {Key? key,
+      {super.key,
       required this.license,
       required this.carName,
       required this.expiresIn,
-      required this.expiryDate})
-      : super(key: key);
+      required this.expiryDate});
 
   @override
   Widget build(BuildContext context) {

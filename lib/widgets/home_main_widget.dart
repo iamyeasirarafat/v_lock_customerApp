@@ -25,7 +25,7 @@ Widget HomeMainWidget() {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Car Slider
-        Container(
+        SizedBox(
           height: 120,
           child: PageView.builder(
             itemCount: carData.length,
@@ -203,7 +203,7 @@ Widget HomeMainWidget() {
                 backgroundColor: Colors.blue[50],
                 padding:
                     const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-                minimumSize: Size(double.infinity, 70),
+                minimumSize: const Size(double.infinity, 70),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 )),

@@ -21,7 +21,7 @@ class DeviceDetails extends StatelessWidget {
     // Add more cars as needed
   ];
 
-  DeviceDetails({Key? key}) : super(key: key);
+  DeviceDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -209,7 +209,7 @@ class DeviceDetails extends StatelessWidget {
                   backgroundColor: Colors.blue[50],
                   padding:
                       const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-                  minimumSize: Size(double.infinity, 70),
+                  minimumSize: const Size(double.infinity, 70),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   )),

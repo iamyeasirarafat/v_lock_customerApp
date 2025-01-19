@@ -50,8 +50,7 @@ class BaseLayout extends StatefulWidget {
   final Widget? customBody; // Custom body for extended pages
   final int? initialIndex; // Initial navigation index
 
-  const BaseLayout({Key? key, this.customBody, this.initialIndex})
-      : super(key: key);
+  const BaseLayout({super.key, this.customBody, this.initialIndex});
 
   @override
   _BaseLayoutState createState() => _BaseLayoutState();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 Widget pagination() {
-  final TextEditingController _controller = TextEditingController(text: "1");
+  final TextEditingController controller = TextEditingController(text: "1");
   return Container(
     padding: const EdgeInsets.symmetric(
       vertical: 8,
@@ -58,7 +58,7 @@ Widget pagination() {
                 borderRadius: BorderRadius.circular(8),
               ),
               child: TextField(
-                controller: _controller,
+                controller: controller,
                 textAlign: TextAlign.center,
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsets.only(bottom: 8),

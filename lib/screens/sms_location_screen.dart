@@ -150,7 +150,8 @@ class _LocationScreenState extends State<LocationScreen> {
                 },
                 icon: const Icon(Icons.location_on_outlined),
                 label: const Text('Check Latest Location',
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+                    style:
+                        TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).primaryColor,
                   foregroundColor: Colors.white,

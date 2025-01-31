@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'V Lock',
       theme: ThemeData(
-        primaryColor: const Color(0xFF7F56D9),
+        primaryColor: const Color(0xFF6941C6),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,

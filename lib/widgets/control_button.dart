@@ -1,22 +1,79 @@
 import 'package:flutter/material.dart';
 
-Widget BuildControlButton(IconData icon, String label) {
+Widget buildControlButton(IconData icon, String label, VoidCallback onPressed) {
   return Container(
-    margin: const EdgeInsets.all(8),
     decoration: BoxDecoration(
-      color: Colors.blue[50],
+      color: const Color(0xFFD1E0FF), // Lighter blue background
       borderRadius: BorderRadius.circular(12),
     ),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(icon, color: const Color(0xFF212325), size: 28),
-        Text(
-          label,
-          style: const TextStyle(fontSize: 14, color: Color(0xFF212325)),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    ),
+    child: GestureDetector(
+        onTap: onPressed,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: Colors.black87,
+              size: 28, // Slightly larger icon
+            ),
+            const SizedBox(height: 6), // Reduced spacing
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+                color: Colors.black87,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        )),
   );
+}
+
+class ControlButton extends StatelessWidget {
+  final String text;
+  final IconData icon;
+  final Color backgroundColor;
+  final VoidCallback onTap;
+
+  const ControlButton({
+    Key? key,
+    required this.text,
+    required this.icon,
+    required this.backgroundColor,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              text,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Icon(
+              icon,
+              color: Colors.white,
+              size: 26,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

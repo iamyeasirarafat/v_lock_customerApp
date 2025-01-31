@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_Lock/layouts/base_layout.dart';
 import 'package:vehicle_Lock/screens/device_settings.dart';
+import 'package:vehicle_Lock/screens/sms_location_screen.dart';
 import 'package:vehicle_Lock/widgets/control_button.dart';
 import 'package:vehicle_Lock/widgets/control_button_modal.dart';
 import 'package:vehicle_Lock/widgets/custom_switch.dart';
@@ -389,8 +390,15 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                             ? [
                                 buildControlButton(
                                     Icons.person_outline, 'Status', () => {}),
-                                buildControlButton(Icons.location_on_outlined,
-                                    'Location', () => {}),
+                                buildControlButton(
+                                    Icons.location_on_outlined, 'Location', () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const LocationScreen()),
+                                  );
+                                }),
                                 buildControlButton(
                                     Icons.phone_outlined, 'Auto Call', () {
                                   showDynamicControlModal(

@@ -56,52 +56,50 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            const CustomTextField(
-              hintText: 'Search vehicle',
-              icon: Icons.search,
-            ),
-            const SizedBox(height: 10),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton.icon(
-                onPressed: () => _dialogBuilder(context),
-                icon: const Icon(
-                  Icons.add,
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        children: [
+          const CustomTextField(
+            hintText: 'Search vehicle',
+            icon: Icons.search,
+          ),
+          const SizedBox(height: 10),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton.icon(
+              onPressed: () => _dialogBuilder(context),
+              icon: const Icon(
+                Icons.add,
+                color: Colors.white,
+                size: 20,
+              ),
+              label: const Text(
+                'Add Vehicle',
+                style: TextStyle(
                   color: Colors.white,
-                  size: 20,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                 ),
-                label: const Text(
-                  'Add Vehicle',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                style: TextButton.styleFrom(
-                  backgroundColor: Theme.of(context).primaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+              ),
+              style: TextButton.styleFrom(
+                backgroundColor: Theme.of(context).primaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
             ),
-            const SizedBox(height: 10),
-            Expanded(
-              child: ListView.builder(
-                itemCount: devicesList.length,
-                itemBuilder: (context, index) {
-                  return DeviceListItem(device: devicesList[index]);
-                },
-              ),
+          ),
+          const SizedBox(height: 10),
+          Expanded(
+            child: ListView.builder(
+              itemCount: devicesList.length,
+              itemBuilder: (context, index) {
+                return DeviceListItem(device: devicesList[index]);
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

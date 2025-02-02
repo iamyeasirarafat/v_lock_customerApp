@@ -102,7 +102,9 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:vehicle_Lock/screens/history_screen.dart';
 import 'package:vehicle_Lock/screens/home_screen.dart';
+import 'package:vehicle_Lock/screens/location_screen.dart';
 import 'package:vehicle_Lock/screens/notification_screen.dart';
 import 'package:vehicle_Lock/screens/profile_screen.dart';
 import 'package:vehicle_Lock/widgets/app_bar.dart';
@@ -128,8 +130,8 @@ class _BaseLayoutState extends State<BaseLayout> {
   final List<int> _navigationHistory = [];
 
   final List<Widget> _defaultScreens = [
-    const Center(child: Text('Map Screen')),
-    const Center(child: Text('Chart Screen')),
+    const LiveLocationMap(),
+    const HistoryScreen(),
     const HomeScreen(),
     const NotificationScreen(),
     const ProfileScreen(),

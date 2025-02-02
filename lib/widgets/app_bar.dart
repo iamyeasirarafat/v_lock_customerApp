@@ -26,21 +26,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          margin: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: const Row(
-            children: [
-              Icon(Icons.circle, color: Colors.green, size: 12),
-              SizedBox(width: 4),
-              Text('Solo', style: TextStyle(color: Colors.black)),
-            ],
-          ),
-        ),
+        // Container(
+        //   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        //   margin: const EdgeInsets.all(8),
+        //   decoration: BoxDecoration(
+        //     color: Colors.white,
+        //     borderRadius: BorderRadius.circular(8),
+        //   ),
+        //   child: const Row(
+        //     children: [
+        //       Icon(Icons.circle, color: Colors.green, size: 12),
+        //       SizedBox(width: 4),
+        //       Text('Solo', style: TextStyle(color: Colors.black)),
+        //     ],
+        //   ),
+        // ),
         IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {

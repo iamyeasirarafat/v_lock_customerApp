@@ -101,15 +101,15 @@ class DeviceListItem extends StatelessWidget {
         child: Row(
           children: [
             // Vehicle Icon
-            // Image.network(
-            //   device['iconUrl'],
-            //   width: 40,
-            //   height: 40,
-            // ),
-            const Icon(
-              Icons.directions_car,
-              size: 40,
+            Image.asset(
+              device['iconUrl'],
+              width: 40,
+              height: 60,
             ),
+            // const Icon(
+            //   Icons.directions_car,
+            //   size: 40,
+            // ),
             const SizedBox(width: 8),
 
             // Device Info
@@ -156,6 +156,7 @@ class DeviceListItem extends StatelessWidget {
                   _buildNetworkIndicator(device['networkLevel'], context),
                   _buildBatteryIndicator(device['batteryLevel'], context),
                 ],
+                const SizedBox(width: 5),
                 Container(
                   height: 28.0,
                   width: 28.0,
@@ -170,7 +171,7 @@ class DeviceListItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 10),
                 Container(
                     height: 28.0,
                     width: 28.0,

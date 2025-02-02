@@ -43,6 +43,8 @@ class _DeviceDetailsState extends State<DeviceDetails> {
   bool theftMode = false;
   bool twoMinLock = false;
   bool rfRemote = false;
+  bool lowPower = false;
+  bool status = true;
   @override
   Widget build(BuildContext context) {
     return BaseLayout(
@@ -353,7 +355,14 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                           text: 'GPS Location',
                           icon: Icons.location_on_outlined,
                           backgroundColor: const Color(0xFF2ECC71),
-                          onTap: () => print('GPS tapped'),
+                          onTap: () => {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const BaseLayout(initialIndex: 0)),
+                            )
+                          },
                         )),
                         const SizedBox(width: 6),
                         Expanded(
@@ -389,7 +398,19 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                         children: !isGPSMode
                             ? [
                                 buildControlButton(
-                                    Icons.person_outline, 'Status', () => {}),
+                                    Icons.person_outline, 'Status', () {
+                                  showDynamicControlModal(
+                                    context: context,
+                                    type: ModalType.toggle,
+                                    title: 'Status',
+                                    value: status,
+                                    onChanged: (bool value) {
+                                      setState(() => status = value);
+                                      // Additional handling
+                                      Navigator.pop(context);
+                                    },
+                                  );
+                                }),
                                 buildControlButton(
                                     Icons.location_on_outlined, 'Location', () {
                                   Navigator.push(
@@ -427,8 +448,20 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                                     },
                                   );
                                 }),
-                                buildControlButton(Icons.flash_on_outlined,
-                                    'Low Power', () => {}),
+                                buildControlButton(
+                                    Icons.flash_on_outlined, 'Low Power', () {
+                                  showDynamicControlModal(
+                                    context: context,
+                                    type: ModalType.buttons,
+                                    title: 'Low Power',
+                                    value: lowPower,
+                                    onChanged: (bool value) {
+                                      setState(() => lowPower = value);
+                                      // Additional handling
+                                      Navigator.pop(context);
+                                    },
+                                  );
+                                }),
                                 buildControlButton(
                                     Icons.timer_outlined, '2min Lock', () {
                                   showDynamicControlModal(
@@ -457,8 +490,16 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                                     },
                                   );
                                 }),
-                                buildControlButton(Icons.history_outlined,
-                                    'History', () => {}),
+                                buildControlButton(
+                                    Icons.history_outlined, 'History', () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const BaseLayout(
+                                              initialIndex: 1,
+                                            )),
+                                  );
+                                }),
                               ]
                             : [
                                 buildControlButton(
@@ -489,10 +530,27 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                                     },
                                   );
                                 }),
-                                buildControlButton(Icons.notifications_none,
-                                    'Notification', () => {}),
-                                buildControlButton(Icons.history_outlined,
-                                    'History', () => {}),
+                                buildControlButton(
+                                    Icons.notifications_none, 'Notification',
+                                    () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const BaseLayout(
+                                              initialIndex: 3,
+                                            )),
+                                  );
+                                }),
+                                buildControlButton(
+                                    Icons.history_outlined, 'History', () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const BaseLayout(
+                                              initialIndex: 1,
+                                            )),
+                                  );
+                                }),
                               ],
                       )
                     ],

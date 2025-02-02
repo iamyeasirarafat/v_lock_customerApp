@@ -7,7 +7,7 @@ final List<Map<String, dynamic>> devicesList = [
   {
     'name': "Razu's BMW",
     'type': 'SMS Device',
-    'iconUrl': 'https://cdn-icons-png.flaticon.com/512/1077/1077114.png',
+    'iconUrl': 'assets/icon-1.png',
     'smsActive': true,
     'gpsActive': false,
     'networkLevel': 0,
@@ -16,7 +16,7 @@ final List<Map<String, dynamic>> devicesList = [
   {
     'name': "Truck Godown",
     'type': 'GPS Pro Device',
-    'iconUrl': 'https://cdn-icons-png.flaticon.com/512/1077/1077114.png',
+    'iconUrl': 'assets/icon-2.png',
     'smsActive': true,
     'gpsActive': true,
     'networkLevel': 100,
@@ -25,7 +25,7 @@ final List<Map<String, dynamic>> devicesList = [
   {
     'name': "Staff Bus 024",
     'type': 'GPS Pro Device',
-    'iconUrl': 'https://cdn-icons-png.flaticon.com/512/1077/1077114.png',
+    'iconUrl': 'assets/icon-3.png',
     'smsActive': true,
     'gpsActive': true,
     'networkLevel': 50,
@@ -34,7 +34,7 @@ final List<Map<String, dynamic>> devicesList = [
   {
     'name': "Staff Bus 024",
     'type': 'GPS Pro Device',
-    'iconUrl': 'https://cdn-icons-png.flaticon.com/512/1077/1077114.png',
+    'iconUrl': 'assets/icon-4.png',
     'smsActive': true,
     'gpsActive': true,
     'networkLevel': 35,
@@ -43,7 +43,7 @@ final List<Map<String, dynamic>> devicesList = [
   {
     'name': "Razu's Speedboat",
     'type': 'GPS Pro Device',
-    'iconUrl': 'https://cdn-icons-png.flaticon.com/512/1077/1077114.png',
+    'iconUrl': 'assets/icon-5.png',
     'smsActive': false,
     'gpsActive': false,
     'networkLevel': 0,

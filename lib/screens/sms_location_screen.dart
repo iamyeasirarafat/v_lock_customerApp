@@ -148,7 +148,7 @@ class _LocationScreenState extends State<LocationScreen> {
                 onPressed: () {
                   // Handle location check
                 },
-                icon: const Icon(Icons.location_on_outlined),
+                icon: const Icon(Icons.location_on_outlined,color: Colors.white,),
                 label: const Text('Check Latest Location',
                     style:
                         TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),

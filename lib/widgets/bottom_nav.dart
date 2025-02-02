@@ -32,7 +32,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
               ),
             ],
           ),
-          height: 80,
+          height: 85,
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.transparent,
@@ -116,7 +116,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
         ),
         // Floating home button
         Positioned(
-          top: -20,
+          top: -25,
           left: 0,
           right: 0,
           child: Center(

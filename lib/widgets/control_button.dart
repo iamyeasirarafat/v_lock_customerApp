@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 Widget buildControlButton(IconData icon, String label, VoidCallback onPressed) {
-  return Container(
-    decoration: BoxDecoration(
-      color: const Color(0xFFD1E0FF), // Lighter blue background
-      borderRadius: BorderRadius.circular(12),
-    ),
-    child: GestureDetector(
-        onTap: onPressed,
+  return InkWell(
+    onTap: onPressed,
+    radius: 12,
+    child: Container(
+        decoration: BoxDecoration(
+          color: const Color(0xFFD1E0FF), // Lighter blue background
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

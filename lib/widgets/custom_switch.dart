@@ -35,7 +35,7 @@ class CustomSwitch extends StatelessWidget {
             activeColor: Colors.white,
             activeTrackColor: Theme.of(context).primaryColor,
             inactiveThumbColor: Colors.white,
-            inactiveTrackColor: const Color(0xFFE5E7EB),
+            inactiveTrackColor: Theme.of(context).primaryColor,
             trackOutlineColor: WidgetStateProperty.resolveWith((states) {
               // Remove border when inactive
               if (!states.contains(WidgetState.selected)) {

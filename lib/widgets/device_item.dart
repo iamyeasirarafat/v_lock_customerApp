@@ -1,51 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:popover/popover.dart';
 import 'package:vehicle_Lock/screens/device_details.dart';
 
 class DeviceListItem extends StatelessWidget {
   final Map<String, dynamic> device;
 
-  const DeviceListItem({Key? key, required this.device}) : super(key: key);
+  const DeviceListItem({super.key, required this.device});
 
   Widget _buildNetworkIndicator(int level, context) {
     if (level >= 75) {
-      return Icon(Icons.signal_cellular_alt,
-          color: Theme.of(context).primaryColor);
+      return SvgPicture.asset('assets/signal-full-icon.svg');
     } else if (level >= 50) {
-      return Icon(
-        Icons.signal_cellular_alt_2_bar,
-        color: Theme.of(context).primaryColor,
-      );
+      return SvgPicture.asset('assets/signal-mid-icon.svg');
     } else if (level >= 35) {
-      return const Icon(
-        Icons.signal_cellular_alt_1_bar,
-        color: Colors.red,
-      );
+      return SvgPicture.asset('assets/signal-low-icon.svg');
     } else {
-      return const Icon(
-        Icons.signal_cellular_alt,
-        color: Color(0xFfD0D5DD),
-      );
+      return SvgPicture.asset('assets/signal-empty-icon.svg');
     }
   }
 
   Widget _buildBatteryIndicator(int level, context) {
-    Color color;
-    IconData icon;
     if (level >= 75) {
-      color = Theme.of(context).primaryColor;
-      icon = Icons.battery_6_bar_rounded;
-    } else if (level >= 50) {
-      color = Theme.of(context).primaryColor;
-      icon = Icons.battery_4_bar_rounded;
-    } else if (level >= 35) {
-      color = const Color(0xFFF79009);
-      icon = Icons.battery_2_bar;
-    } else {
-      color = Colors.red;
-      icon = Icons.battery_0_bar_rounded;
+      return SvgPicture.asset('assets/battery-full-icon.svg');
     }
-    return Icon(icon, color: color);
+    else if (level >= 50) {
+      return SvgPicture.asset('assets/battery-mid-icon.svg');
+    } else if (level >= 35) {
+      return SvgPicture.asset('assets/battery-low-icon.svg');
+    } else {
+      return SvgPicture.asset('assets/battery-empty-icon.svg');
+    }
   }
 
   Widget _buildStatusBadge(bool isActive, String type) {
@@ -83,10 +68,6 @@ class DeviceListItem extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(12.00),
       onTap: () {
-        // Navigator.pushReplacement(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => const DeviceControlScreen()),
-        // );
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => DeviceDetails()),
@@ -154,9 +135,10 @@ class DeviceListItem extends StatelessWidget {
               children: [
                 if (device['type'] == 'GPS Pro Device') ...[
                   _buildNetworkIndicator(device['networkLevel'], context),
+                  const SizedBox(width: 8),
                   _buildBatteryIndicator(device['batteryLevel'], context),
                 ],
-                const SizedBox(width: 5),
+                const SizedBox(width: 8),
                 Container(
                   height: 28.0,
                   width: 28.0,
@@ -171,7 +153,7 @@ class DeviceListItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: 8),
                 Container(
                     height: 28.0,
                     width: 28.0,

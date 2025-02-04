@@ -354,7 +354,7 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                             child: ControlButton(
                           text: 'GPS Location',
                           icon: Icons.location_on_outlined,
-                          backgroundColor: const Color(0xFF2ECC71),
+                          backgroundColor: const Color(0xFF00359E),
                           onTap: () => {
                             Navigator.pushReplacement(
                               context,
@@ -369,7 +369,7 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                           child: ControlButton(
                             text: 'Geo Fence',
                             icon: Icons.flag_outlined,
-                            backgroundColor: const Color(0xFF2ECC71),
+                            backgroundColor: const Color(0xFF00359E),
                             onTap: () => print('Geo Fence tapped'),
                           ),
                         ),
@@ -572,7 +572,7 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Go To Settings',
+                                'Settings',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,

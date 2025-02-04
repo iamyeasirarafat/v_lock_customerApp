@@ -6,7 +6,9 @@ Widget registrationForm({
   required TextEditingController nameController,
   required TextEditingController emailController,
   required TextEditingController passwordController,
-  required Color primaryColor
+  required Color primaryColor,
+  required bool isPasswordVisible,
+  required VoidCallback togglePasswordVisibility,
 }) {
   return Form(
     key: key,
@@ -93,21 +95,30 @@ Widget registrationForm({
         ),
         TextFormField(
           controller: passwordController,
-          obscureText: true,
+          obscureText: !isPasswordVisible,
           decoration: InputDecoration(
-            // labelText: 'Password',
             hintText: "******",
             hintStyle: TextStyle(color: Colors.grey[500]),
             enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey[300]!),
-                borderRadius: BorderRadius.circular(10)),
+              borderSide: BorderSide(color: Colors.grey[300]!),
+              borderRadius: BorderRadius.circular(10),
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
+            ),
+            suffixIcon: IconButton(
+              icon: Icon(
+                isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                color: Colors.grey,
+              ),
+              onPressed: togglePasswordVisibility,
             ),
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter your password';
+            } else if (value != "123456") {
+              return 'Invalid password';
             }
             return null;
           },

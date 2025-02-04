@@ -21,7 +21,13 @@ class _LoginScreenState extends State<LoginScreen> {
       _rememberMe = value;
     });
   }
+  bool isPasswordVisible = false;
 
+  void togglePasswordVisibility() {
+    setState(() {
+      isPasswordVisible = !isPasswordVisible;
+    });
+  }
   final TextEditingController emailController = TextEditingController(text: "user@gmail.com");
   final TextEditingController passwordController = TextEditingController(text: "123456");
   final TextEditingController nameController = TextEditingController();
@@ -127,6 +133,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       passwordController: passwordController,
                       rememberMe: _rememberMe,
                       onRememberMeChanged: _updateRememberMe,
+                      isPasswordVisible: isPasswordVisible,
+                      togglePasswordVisibility: togglePasswordVisibility,
                       primaryColor: Theme.of(context).primaryColor)
                 else
                   registrationForm(
@@ -134,6 +142,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       nameController: nameController,
                       emailController: emailController,
                       passwordController: passwordController,
+                      isPasswordVisible: isPasswordVisible,
+                      togglePasswordVisibility: togglePasswordVisibility,
                       primaryColor: Theme.of(context).primaryColor),
                 const SizedBox(height: 24),
                 // Submit Button

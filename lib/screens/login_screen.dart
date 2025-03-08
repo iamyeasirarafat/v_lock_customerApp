@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:vehicle_Lock/layouts/base_layout.dart';
+import 'package:vehicle_Lock/providers/auth_provider.dart';
 import 'package:vehicle_Lock/widgets/login_form.dart';
 import 'package:vehicle_Lock/widgets/registration_form.dart';
 
@@ -21,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
       _rememberMe = value;
     });
   }
+
   bool isPasswordVisible = false;
 
   void togglePasswordVisibility() {
@@ -28,26 +31,32 @@ class _LoginScreenState extends State<LoginScreen> {
       isPasswordVisible = !isPasswordVisible;
     });
   }
-  final TextEditingController emailController = TextEditingController(text: "user@gmail.com");
-  final TextEditingController passwordController = TextEditingController(text: "123456");
+
+  final TextEditingController emailController =
+      TextEditingController(text: "user@gmail.com");
+  final TextEditingController passwordController =
+      TextEditingController(text: "123456");
   final TextEditingController nameController = TextEditingController();
 
-  // Function to handle login or registration
-  void _submitForm() {
+  // In your login screen's submit method
+  void _submitForm() async {
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+
     if (_isLoginSelected) {
       if (_loginFormKey.currentState!.validate()) {
-        // Perform login logic
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const BaseLayout()),
-        );
+        await authProvider.login(emailController.text, passwordController.text);
+        if (authProvider.isLoggedIn) {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (_) => const BaseLayout()));
+        }
       }
     } else {
-      if (_registrationFormKey.currentState!.validate()) {
-        // Perform registration logic
-        print(
-            'Name: ${nameController.text}, Email: ${emailController.text}, Password: ${passwordController.text}');
-      }
+      await authProvider.register(
+        nameController.text,
+        emailController.text,
+        passwordController.text,
+      );
+      // Auto-login after registration if needed
     }
   }
 

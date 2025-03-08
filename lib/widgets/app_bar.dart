@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:vehicle_Lock/providers/auth_provider.dart';
 import 'package:vehicle_Lock/screens/login_screen.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -27,21 +29,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        // Container(
-        //   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-        //   margin: const EdgeInsets.all(8),
-        //   decoration: BoxDecoration(
-        //     color: Colors.white,
-        //     borderRadius: BorderRadius.circular(8),
-        //   ),
-        //   child: const Row(
-        //     children: [
-        //       Icon(Icons.circle, color: Colors.green, size: 12),
-        //       SizedBox(width: 4),
-        //       Text('Solo', style: TextStyle(color: Colors.black)),
-        //     ],
-        //   ),
-        // ),
         IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {
@@ -91,11 +78,37 @@ class CustomDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.logout),
             title: const Text('Logout'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
-              );
+            // onTap: () {
+            //   Navigator.pushReplacement(
+            //     context,
+            //     MaterialPageRoute(builder: (context) => const LoginScreen()),
+            //   );
+            // },
+            onTap: () async {
+              final authProvider =
+                  Provider.of<AuthProvider>(context, listen: false);
+              final scaffoldMessenger = ScaffoldMessenger.of(context);
+
+              try {
+                showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (context) =>
+                      const Center(child: CircularProgressIndicator()),
+                );
+
+                await authProvider.logout();
+
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (_) => const LoginScreen()),
+                  (route) => false,
+                );
+              } catch (e) {
+                Navigator.pop(context); // Dismiss loading
+                scaffoldMessenger.showSnackBar(
+                  SnackBar(content: Text('Logout failed: ${e.toString()}')),
+                );
+              }
             },
           ),
         ],

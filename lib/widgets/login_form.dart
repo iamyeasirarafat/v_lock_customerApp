@@ -42,8 +42,8 @@ Widget loginForm({
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter your email';
-            } else if (value != "user@gmail.com") {
-              return 'Invalid email address';
+            } else if (!value.contains('@')) {
+              return 'Please enter a valid email';
             }
             return null;
           },
@@ -86,8 +86,6 @@ Widget loginForm({
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter your password';
-            } else if (value != "123456") {
-              return 'Invalid password';
             }
             return null;
           },

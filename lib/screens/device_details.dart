@@ -308,8 +308,8 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                             showDynamicControlModal(
                               context: context,
                               type: isGPSMode
-                                  ? ModalType.buttons
-                                  : ModalType.toggle,
+                                  ? ModalType.toggle
+                                  : ModalType.buttons,
                               title: 'Lock Command',
                               value: isLocked,
                               onChanged: (bool value) {
@@ -331,8 +331,8 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                             showDynamicControlModal(
                               context: context,
                               type: isGPSMode
-                                  ? ModalType.buttons
-                                  : ModalType.toggle,
+                                  ? ModalType.toggle
+                                  : ModalType.buttons,
                               title: 'Alarm Command',
                               value: isAlarmOn,
                               onChanged: (bool value) {
@@ -401,7 +401,7 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                                     Icons.person_outline, 'Status', () {
                                   showDynamicControlModal(
                                     context: context,
-                                    type: ModalType.toggle,
+                                    type: ModalType.buttons,
                                     title: 'Status',
                                     value: status,
                                     onChanged: (bool value) {
@@ -424,7 +424,7 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                                     Icons.phone_outlined, 'Auto Call', () {
                                   showDynamicControlModal(
                                     context: context,
-                                    type: ModalType.toggle,
+                                    type: ModalType.buttons,
                                     title: 'Auto Call',
                                     value: autoCall,
                                     onChanged: (bool value) {
@@ -438,7 +438,7 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                                     Icons.shield_outlined, 'Theft', () {
                                   showDynamicControlModal(
                                     context: context,
-                                    type: ModalType.toggle,
+                                    type: ModalType.buttons,
                                     title: 'Theft Mode',
                                     value: theftMode,
                                     onChanged: (bool value) {
@@ -466,7 +466,7 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                                     Icons.timer_outlined, '2min Lock', () {
                                   showDynamicControlModal(
                                     context: context,
-                                    type: ModalType.toggle,
+                                    type: ModalType.buttons,
                                     title: '2 min Lock',
                                     value: twoMinLock,
                                     onChanged: (bool value) {
@@ -506,7 +506,7 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                                     Icons.phone_outlined, 'Auto Call', () {
                                   showDynamicControlModal(
                                     context: context,
-                                    type: ModalType.buttons,
+                                    type: ModalType.toggle,
                                     title: 'Auto Call',
                                     value: autoCall,
                                     onChanged: (bool value) {
@@ -520,7 +520,7 @@ class _DeviceDetailsState extends State<DeviceDetails> {
                                     Icons.timer_outlined, '2 min Lock', () {
                                   showDynamicControlModal(
                                     context: context,
-                                    type: ModalType.buttons,
+                                    type: ModalType.toggle,
                                     title: '2 min Lock',
                                     value: twoMinLock,
                                     onChanged: (bool value) {

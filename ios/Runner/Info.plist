@@ -47,5 +47,16 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<!-- Storage Permissions -->
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>Need storage access to save app data</string>
+		
+		<!-- Location Permissions -->
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>Need location access for vehicle tracking</string>
+		
+		<!-- SMS Permissions -->
+		<key>NSMessageUsageDescription</key>
+		<string>Need SMS access for verification</string>
 	</dict>
 </plist>
